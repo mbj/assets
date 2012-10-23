@@ -4,7 +4,7 @@ require File.expand_path('../lib/assets/version.rb', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.name        = 'assets'
-  gem.version     = Mutant::VERSION.dup
+  gem.version     = Assets::VERSION.dup
   gem.authors     = [ 'Markus Schirp' ]
   gem.email       = [ 'mbj@seonic.net' ]
   gem.description = 'Playground for a small assets system'
