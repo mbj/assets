@@ -1,3 +1,5 @@
+require 'abstract_class'
+require 'descendants_tracker'
 require 'adamantium'
 require 'equalizer'
 require 'ice_nine'
