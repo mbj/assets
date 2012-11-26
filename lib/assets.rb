@@ -7,7 +7,7 @@ require 'ice_nine/core_ext/object'
 
 module Assets
   class Asset
-    include Adamantium, AbstractClass, Equalizer.new(:sha1)
+    include Adamantium, AbstractType, Equalizer.new(:sha1)
 
     class Packaged
       include Adamantium, Anima
@@ -24,7 +24,7 @@ module Assets
       def content_type; self.class::CONTENT_TYPE; end
 
       class Compiled < self
-        include AbstractClass
+        include AbstractType
 
         attr_reader :body
 
@@ -107,7 +107,7 @@ module Assets
   end
 
   class Rule 
-    include Adamantium, AbstractClass, Equalizer.new(:logical)
+    include Adamantium, AbstractType, Equalizer.new(:logical)
 
     attr_reader :source
     private :source
@@ -187,7 +187,7 @@ module Assets
   end
 
   class Environment
-    include Adamantium, AbstractClass
+    include Adamantium, AbstractType
 
     abstract_method :get
 
