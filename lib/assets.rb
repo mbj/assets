@@ -1,4 +1,4 @@
-require 'abstract_class'
+require 'abstract_type'
 require 'descendants_tracker'
 require 'adamantium'
 require 'equalizer'
