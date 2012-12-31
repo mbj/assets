@@ -1,44 +1,34 @@
 module Assets
 
-  # Abstract base class for rules
+  # Abstract base class for rules that generate assets
   class Rule 
-    include Adamantium, AbstractType, Equalizer.new(:logical)
+    include Adamantium, AbstractType
 
-    attr_reader :source
-    private :source
-
-    abstract_method :compiled
-
-    class Static < self
-      def initialize(asset)
-        @asset = asset
-      end
-
-      attr_reader :asset
+    # Return asset
+    #
+    # @return [Asset]
+    #
+    # @api private
+    #
+    def asset
+      Evaluator.new(self).asset
     end
 
-    class Compile
-      def asset
-        asset_klass.new(compiled)
-      end
+    # Return body
+    #
+    # @return [String]
+    #
+    # @api private
+    #
+    abstract_method :body
 
-      def asset_klass
-        self.class::ASSET
-      end
+    # Return mime 
+    #
+    # @return [Mime]
+    #
+    # @api private
+    #
+    abstract_method :mime
 
-      def initialize(logical, source)
-        @logical, @source = logical.dup.freeze, source.dup.freeze
-      end
-
-
-      class Sass < self
-        ASSET = Asset::Dynamic::Compiled::CSS
-
-        def compiled
-          ::Sass.compile_file(source)
-        end
-      end
-    end
   end
-
 end

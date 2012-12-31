@@ -43,9 +43,13 @@ module Assets
     # @api private
     #
     def call(env)
-      path_info = env.fetch('PATH_INFO').gsub(prefix, '')
-      asset = environment.get(path_info)
-      Response.build(200, {'Content-Type' => asset.content_type}, asset.body)
+      name = env.fetch('PATH_INFO').gsub(prefix, '')
+      asset = environment.get(name)
+      if asset
+        Response.build(200, {'Content-Type' => asset.mime.content_type}, asset.body)
+      else
+        Response.build(404, {'Content-Type' => 'text/plain; charset=utf-8'}, 'Not found')
+      end
     end
   end
 end

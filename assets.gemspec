@@ -21,5 +21,6 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency('equalizer',           '~> 0.0.1')
   gem.add_runtime_dependency('abstract_type',       '~> 0.0.2')
   gem.add_runtime_dependency('anima',               '~> 0.0.1')
+  gem.add_runtime_dependency('sass',                '~> 3.2.4')
   gem.add_runtime_dependency('diff-lcs',            '~> 1.1.3')
 end
