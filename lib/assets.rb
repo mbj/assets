@@ -5,6 +5,7 @@ require 'composition'
 require 'equalizer'
 require 'ice_nine'
 require 'anima'
+require 'request'
 require 'response'
 require 'sass'
 

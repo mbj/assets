@@ -2,28 +2,6 @@ require 'spec_helper'
 
 describe Assets, 'and spiking around' do
 
-  class DummyResponse
-    def initialize(tuple)
-      @tuple = tuple
-    end
-
-    def content_type
-      headers['Content-Type']
-    end
-
-    def body
-      @tuple[2]
-    end
-
-    def headers
-      @tuple[1]
-    end
-
-    def status
-      @tuple[0]
-    end
-  end
-
   let(:root) do
     Pathname.new(__FILE__).parent.parent.parent.join('assets')
   end
@@ -54,17 +32,11 @@ describe Assets, 'and spiking around' do
   end
 
   let(:request) do
-    { 'PATH_INFO' => path_info }
+    Request::Rack.new('PATH_INFO' => path_info)
   end
 
   subject do 
-    DummyResponse.new(server.call(request))
-  end
-
-  context 'with unknown asset' do
-    let(:path_info) { '/assets/not_found.txt' }
-
-    its(:status) { should be(404) }
+    server.call(request)
   end
 
   def strip_indentation(text)
@@ -82,10 +54,23 @@ describe Assets, 'and spiking around' do
     CSS
   end
 
-  context 'with known asset' do
-    let(:path_info)    { '/assets/application.css'             }
-    its(:content_type) { should eql('text/css; charset=UTF-8') }
-    its(:status)       { should be(200)                        }
-    its(:body)         { should eql(expected_body)             }
+  context 'with development environment' do
+
+    context 'with unknown asset' do
+      let(:path_info) { '/assets/not_found.txt' }
+
+      its(:body)          { should eql('Not found')                  }
+      its(:cache_control) { should eql('max-age=0, must-revalidate') }
+      its(:status) { should be(404) }
+    end
+
+    context 'with known asset' do
+      let(:path_info)     { '/assets/application.css'                }
+      its(:content_type)  { should eql('text/css; charset=UTF-8')    }
+      its(:cache_control) { should eql('max-age=0, must-revalidate') }
+      its(:status)        { should be(200)                           }
+      its(:body)          { should eql(expected_body)                }
+    end
+
   end
 end

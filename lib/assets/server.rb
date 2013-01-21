@@ -34,16 +34,19 @@ module Assets
       @prefix = Regexp.compile("\\A#{Regexp.escape(prefix)}")
     end
 
+    class Found
+    end
+
     # Call rack app
     #
-    # @param [Hash] env
+    # @param [Request] request
     #
-    # @return [Array]
+    # @return [Response]
     #
     # @api private
     #
-    def call(env)
-      name = env.fetch('PATH_INFO').gsub(prefix, '')
+    def call(request)
+      name = request.path_info.gsub(prefix, '')
       asset = environment.get(name)
       if asset
         Response.build(200, {'Content-Type' => asset.mime.content_type}, asset.body)
