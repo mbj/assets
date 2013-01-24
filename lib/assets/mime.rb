@@ -19,6 +19,7 @@ module Assets
     end
 
     JPG  = new('.jpg',  'image/jpg')
+    ICO  = new('.ico',  'image/vnd.microsoft.icon')
     PNG  = new('.png',  'image/png')
     GID  = new('.gif',  'image/gif')
     SVG  = new('.scg',  'image/svg')
