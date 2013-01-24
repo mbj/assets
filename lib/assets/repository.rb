@@ -9,12 +9,14 @@ module Assets
 
       # Build a file rule
       #
+      # @param [#to_s] name
+      #
       # @return [Rule::File]
       #
       # @api private
       #
       def file(name)
-        Rule::File.new(name, path(name))
+        Rule::File.new(name.to_s, path(name))
       end
 
       # Return path for name

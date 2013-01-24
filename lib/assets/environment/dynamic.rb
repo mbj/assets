@@ -50,6 +50,7 @@ module Assets
         rule = rule(name)
         rule && rule.asset
       end
+
     end
   end
 end
