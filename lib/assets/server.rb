@@ -37,6 +37,9 @@ module Assets
     class Found
     end
 
+    HEADERS   = IceNine.deep_freeze('Cache-Control' => 'max-age=0, must-revalidate')
+    NOT_FOUND = Response.build(404, HEADERS.merge('Content-Type' => Assets::Mime::TXT.content_type), 'Not Found')
+
     # Call rack app
     #
     # @param [Request] request
@@ -49,9 +52,9 @@ module Assets
       name = request.path_info.gsub(prefix, '')
       asset = environment.get(name)
       if asset
-        Response.build(200, {'Content-Type' => asset.mime.content_type}, asset.body)
+        Response.build(200, HEADERS.merge('Content-Type' => asset.mime.content_type), asset.body)
       else
-        Response.build(404, {'Content-Type' => 'text/plain; charset=utf-8'}, 'Not found')
+        NOT_FOUND
       end
     end
   end

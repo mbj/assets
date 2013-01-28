@@ -59,7 +59,7 @@ describe Assets, 'and spiking around' do
     context 'with unknown asset' do
       let(:path_info) { '/assets/not_found.txt' }
 
-      its(:body)          { should eql('Not found')                  }
+      its(:body)          { should eql('Not Found')                  }
       its(:cache_control) { should eql('max-age=0, must-revalidate') }
       its(:status) { should be(404) }
     end
