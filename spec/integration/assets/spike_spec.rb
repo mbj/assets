@@ -60,14 +60,14 @@ describe Assets, 'and spiking around' do
       let(:path_info) { '/assets/not_found.txt' }
 
       its(:body)          { should eql('Not Found')                  }
-      its(:cache_control) { should eql('max-age=0, must-revalidate') }
+      its(:cache_control) { should eql('max-age=120, must-revalidate') }
       its(:status) { should be(404) }
     end
 
     context 'with known asset' do
       let(:path_info)     { '/assets/application.css'                }
       its(:content_type)  { should eql('text/css; charset=UTF-8')    }
-      its(:cache_control) { should eql('max-age=0, must-revalidate') }
+      its(:cache_control) { should eql('max-age=120, must-revalidate') }
       its(:status)        { should be(200)                           }
       its(:body)          { should eql(expected_body)                }
     end

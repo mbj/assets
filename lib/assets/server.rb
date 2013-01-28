@@ -37,7 +37,7 @@ module Assets
     class Found
     end
 
-    HEADERS   = IceNine.deep_freeze('Cache-Control' => 'max-age=0, must-revalidate')
+    HEADERS   = IceNine.deep_freeze('Cache-Control' => 'max-age=120, must-revalidate')
     NOT_FOUND = Response.build(404, HEADERS.merge('Content-Type' => Assets::Mime::TXT.content_type), 'Not Found')
 
     # Call rack app
