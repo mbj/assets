@@ -3,42 +3,18 @@ module Assets
 
     # Rule that concatenates assets from other rules
     class Concat < self
-      include Equalizer.new(:name, :rules)
+      include Composition.new(:name, :mime, :rules)
 
-      # Return name
-      #
-      # @return [String]
-      #
-      # @api private
-      #
-      attr_reader :name
-
-      # Return rules
-      #
-      # @return [Enumerable<Rule>]
-      #
-      # @api private
-      #
-      attr_reader :rules
-
-      # Return mime type
-      #
-      # @return [Mime]
-      #
-      # @api private
-      #
-      attr_reader :mime
-
-      # Initialize object
+      # Instantiate object
       #
       # @param [String] name
-      # @param [Array<Rule>] rules
+      # @param [Enumerable<Rule>] rules
       #
       # @api private
       #
-      def initialize(name, rules)
-        @mime = self.class.detect_mime(rules)
-        @name, @rules = name, rules
+      def self.new(name, rules)
+        mime = detect_mime(rules)
+        super(name, mime, rules)
       end
 
       # Build concat rules
