@@ -30,5 +30,28 @@ module Assets
     #
     abstract_method :mime
 
+    # Return updated at
+    #
+    # @return [Time]
+    #
+    # @api private
+    #
+    abstract_method :updated_at
+
+    # Test if asset is fresh at specific time
+    #
+    # @param [Time] time
+    #
+    # @return [true]
+    #   if asset is fresh at time
+    #
+    # @return [false]
+    #
+    # @api private
+    #
+    def fresh_at?(time)
+      time >= updated_at
+    end
+
   end
 end

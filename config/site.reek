@@ -13,7 +13,8 @@ LargeClass:
   enabled: true
   max_instance_variables: 3
 UncommunicativeMethodName:
-  accept: []
+  accept:
+  - sha1
   exclude: []
   enabled: true
   reject:
@@ -26,7 +27,8 @@ LongParameterList:
   enabled: true
   overrides: {}
 FeatureEnvy:
-  exclude: []
+  exclude:
+  - Assets::Environment::Cache#miss # False positive
   enabled: true
 ClassVariable:
   exclude: []
@@ -66,7 +68,7 @@ Attribute:
   exclude: []
   enabled: false
 UncommunicativeVariableName:
-  accept: [] # TODO remove them
+  accept: []
   exclude: []
   enabled: false
   reject:

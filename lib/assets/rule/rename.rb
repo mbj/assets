@@ -34,6 +34,16 @@ module Assets
         rule.mime
       end
 
+      # Return updated at
+      #
+      # @return [Time]
+      #
+      # @api private
+      #
+      def updated_at
+        rule.updated_at
+      end
+
     end
   end
 end

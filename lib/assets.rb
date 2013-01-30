@@ -9,6 +9,7 @@ require 'anima'
 require 'request'
 require 'response'
 require 'sass'
+require 'joy'
 
 # Library namespace
 module Assets
@@ -26,4 +27,6 @@ require 'assets/rule/rename'
 require 'assets/environment'
 require 'assets/environment/static'
 require 'assets/environment/dynamic'
-require 'assets/server'
+require 'assets/environment/cache'
+require 'assets/responder'
+require 'assets/handler'

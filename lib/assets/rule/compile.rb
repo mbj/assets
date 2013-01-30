@@ -13,7 +13,19 @@ module Assets
         file.name
       end
 
+      # Return updated at
+      #
+      # @return [Time]
+      #
+      # @api private
+      #
+      def updated_at
+        file.updated_at
+      end
+
       # Return target name
+      #
+      # @return [String]
       #
       # @api private
       #

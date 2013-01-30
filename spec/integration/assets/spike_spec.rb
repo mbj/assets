@@ -28,15 +28,15 @@ describe Assets, 'and spiking around' do
   end
 
   let(:environment) do
-    Assets::Environment::Dynamic.new(rules)
+    Assets::Environment::Cache.build(rules)
   end
 
   let(:server) do
-    Assets::Server.new(environment, '/assets/')
+    Assets::Handler.new(environment, '/assets/')
   end
 
   let(:request) do
-    Request::Rack.new('PATH_INFO' => path_info)
+    Request::Rack.new({'PATH_INFO' => path_info}.merge(extra_hash))
   end
 
   subject do 
@@ -60,20 +60,56 @@ describe Assets, 'and spiking around' do
 
   context 'with development environment' do
 
-    context 'with unknown asset' do
-      let(:path_info) { '/assets/not_found.txt' }
+    let(:asset)     { environment.get(name) }
+    let(:path_info) { "/assets/#{name}"     }
 
+    context 'with unknown asset' do
+      let(:name)          { 'not_found.txt'                            }
+      let(:path_info)     { '/assets/not_found.txt'                    }
+      let(:extra_hash)    { {}                                         }
       its(:body)          { should eql('Not Found')                    }
       its(:cache_control) { should eql('max-age=120, must-revalidate') }
-      its(:status) { should be(404) }
+      its(:status)        { should be(404)                             }
     end
 
-    context 'with known asset' do
+    context 'with known conditional get' do
+
+
+      let(:extra_hash)    { {'HTTP_IF_MODIFIED_SINCE' => lastmod_time.httpdate } }
+      let(:name)          { 'application.css'                                     }
+
+      context 'with modified_since < asset.created_at' do
+
+        let(:lastmod_time)  { asset.created_at - 1000         }
+        its(:status)        { should be(Response::Status::OK) }
+
+        its(:body)          { should eql(expected_body)       }
+        its(:content_type)  { should eql('text/css; charset=UTF-8')                           }
+        its(:last_modified) { should eql(Time.httpdate(stylesheet.asset.created_at.httpdate)) }
+        its(:cache_control) { should eql('max-age=120, must-revalidate')                      }
+
+      end
+
+      context 'with modified_since > asset.created_at' do
+
+        let(:lastmod_time)  { asset.created_at + 1000         }
+        its(:status)        { should be(Response::Status::NOT_MODIFIED) }
+
+        its(:body)          { should be(nil)                                                  }
+        its(:content_type)  { should be(nil)                                                  }
+        its(:last_modified) { should eql(Time.httpdate(stylesheet.asset.created_at.httpdate)) }
+        its(:cache_control) { should eql('max-age=120, must-revalidate')                      }
+
+      end
+    end
+
+    context 'with known asset and unconditional get' do
       let(:path_info)     { '/assets/application.css'                                       }
+      let(:extra_hash)    { {}                                                              }
       its(:content_type)  { should eql('text/css; charset=UTF-8')                           }
       its(:last_modified) { should eql(Time.httpdate(stylesheet.asset.created_at.httpdate)) }
       its(:cache_control) { should eql('max-age=120, must-revalidate')                      }
-      its(:status)        { should be(200)                                                  }
+      its(:status)        { should be(Response::Status::OK)                                 }
       its(:body)          { should eql(expected_body)                                       }
     end
 

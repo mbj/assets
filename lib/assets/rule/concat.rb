@@ -1,6 +1,5 @@
 module Assets
   class Rule
-
     # Rule that concatenates assets from other rules
     class Concat < self
       include Composition.new(:name, :mime, :rules)
@@ -23,6 +22,8 @@ module Assets
       #
       # @return [Rule::Concat]
       #
+      # @api private
+      #
       def self.build(name, *rules)
         new(name, rules)
       end
@@ -37,6 +38,25 @@ module Assets
         rules.map(&:body).join
       end
 
+      # Return updated_at
+      #
+      # @return [Time]
+      #
+      # @api private
+      #
+      def updated_at
+        time = rules.first.updated_at
+
+        rules.each do |rule|
+          updated_at = rule.updated_at
+          if time < updated_at
+            time = updated_at
+          end
+        end
+
+        time
+      end
+
       # Detect mime type
       #
       # @param [Rules] rules
@@ -46,7 +66,7 @@ module Assets
       # @api private
       #
       def self.detect_mime(rules)
-        raise "#{self.class.name} cannot work on empty rules" if rules.empty?
+        raise "No mime type for empty rules" if rules.empty?
 
         mime = rules.first.mime
 
