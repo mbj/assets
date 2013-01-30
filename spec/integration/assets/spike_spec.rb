@@ -22,8 +22,13 @@ describe Assets, 'and spiking around' do
     Assets::Rule::Concat.build('application.css', fonts, application)
   end
 
+  let(:javascript) do
+    repository.compile('application.coffee')
+  end
+
   let(:rules) do
     rules = []
+    rules << javascript
     rules << stylesheet
   end
 
@@ -62,6 +67,26 @@ describe Assets, 'and spiking around' do
 
     let(:asset)     { environment.get(name) }
     let(:path_info) { "/assets/#{name}"     }
+
+    context 'compiling coffescript' do
+      let(:name)       { 'application.js' }
+      let(:extra_hash) { {}               }
+      let(:expected_body) do
+        strip_indentation(<<-JAVASCRIPT)
+          (function() {
+
+            alert("Hello World");
+
+          }).call(this);
+        JAVASCRIPT
+      end
+
+      its(:content_type)  { should eql('application/javascript; charset=UTF-8')             }
+      its(:last_modified) { should eql(Time.httpdate(stylesheet.asset.created_at.httpdate)) }
+      its(:cache_control) { should eql('max-age=120, must-revalidate')                      }
+      its(:status)        { should be(Response::Status::OK)                                 }
+      its(:body)          { should eql(expected_body)                                       }
+    end
 
     context 'with unknown asset' do
       let(:name)          { 'not_found.txt'                            }

@@ -30,16 +30,17 @@ module Assets
 
     private_class_method :new
 
-    JPG  = new('.jpg',  'image/jpg')
-    ICO  = new('.ico',  'image/vnd.microsoft.icon')
-    PNG  = new('.png',  'image/png')
-    GID  = new('.gif',  'image/gif')
-    SVG  = new('.scg',  'image/svg')
-    TXT  = new('.txt',  'text/plain; charset=UTF-8')
-    CSS  = new('.css',  'text/css; charset=UTF-8')
-    JS   = new('.js',   'application/javascript')
-    SASS = new('.sass', 'text/plain; charset=UTF-8')
-    HTML = new('.html', 'text/html; charset=UTF-8')
+    JPG          = new('.jpg',    'image/jpg'                               )
+    ICO          = new('.ico',    'image/vnd.microsoft.icon'                )
+    PNG          = new('.png',    'image/png'                               )
+    GID          = new('.gif',    'image/gif'                               )
+    SVG          = new('.svg',    'image/svg'                               )
+    TXT          = new('.txt',    'text/plain; charset=UTF-8'               )
+    CSS          = new('.css',    'text/css; charset=UTF-8'                 )
+    JAVASCRIPT   = new('.js',     'application/javascript; charset=UTF-8'   )
+    COFFEESCRIPT = new('.coffee', 'application/coffeescript; charset=UTF-8' )
+    SASS         = new('.sass',   'text/plain; charset=UTF-8'               )
+    HTML         = new('.html',   'text/html; charset=UTF-8'                )
 
     REGISTRY.freeze
   end

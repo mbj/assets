@@ -26,5 +26,5 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency('anima',               '~> 0.0.4')
   gem.add_runtime_dependency('joy',                 '~> 0.0.1')
   gem.add_runtime_dependency('sass',                '~> 3.2.4')
-  gem.add_runtime_dependency('diff-lcs',            '~> 1.1.3')
+  gem.add_runtime_dependency('coffee-script',       '~> 2.2.0')
 end
