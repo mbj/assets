@@ -45,7 +45,7 @@ module Assets
     JPG          = new('.jpg',    'image/jpg'                               )
     ICO          = new('.ico',    'image/vnd.microsoft.icon'                )
     PNG          = new('.png',    'image/png'                               )
-    GID          = new('.gif',    'image/gif'                               )
+    GIF          = new('.gif',    'image/gif'                               )
     SVG          = new('.svg',    'image/svg'                               )
     TXT          = new('.txt',    'text/plain; charset=UTF-8'               )
     CSS          = new('.css',    'text/css; charset=UTF-8'                 )
@@ -53,6 +53,10 @@ module Assets
     COFFEESCRIPT = new('.coffee', 'application/coffeescript; charset=UTF-8' )
     SASS         = new('.sass',   'text/plain; charset=UTF-8'               )
     HTML         = new('.html',   'text/html; charset=UTF-8'                )
+
+    IMAGES = [
+      JPG, ICO, PNG, SVG, GIF
+    ].freeze
 
     REGISTRY.freeze
   end
