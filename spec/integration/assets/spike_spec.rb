@@ -94,7 +94,7 @@ describe Assets, 'and spiking around' do
       let(:extra_hash)    { {}                                         }
       its(:body)          { should eql('Not Found')                    }
       its(:cache_control) { should eql('max-age=120, must-revalidate') }
-      its(:status)        { should be(404)                             }
+      its(:status)        { should be(Response::Status::NOT_FOUND)     }
     end
 
     context 'with known conditional get' do

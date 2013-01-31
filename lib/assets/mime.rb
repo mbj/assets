@@ -16,6 +16,18 @@ module Assets
       REGISTRY.fetch(extname)
     end
 
+    # Return mime name
+    #
+    # @param [String] name
+    #
+    # @return [Mime]
+    #
+    # @api private
+    #
+    def self.from_name(name)
+      extname(::File.extname(name))
+    end
+
     # Instantiate object 
     #
     # @return [Mime]
