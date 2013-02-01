@@ -38,6 +38,18 @@ module Assets
     #
     abstract_method :updated_at
 
+    # Return renamed asset
+    #
+    # @param [String] name
+    # 
+    # @return [Rule::Rename]
+    #
+    # @api private
+    #
+    def rename(name)
+      Rename.new(name, self)
+    end
+
     # Test if asset is fresh at specific time
     #
     # @param [Time] time
