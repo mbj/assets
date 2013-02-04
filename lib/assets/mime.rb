@@ -47,6 +47,7 @@ module Assets
     PNG          = new('.png',    'image/png'                               )
     GIF          = new('.gif',    'image/gif'                               )
     SVG          = new('.svg',    'image/svg'                               )
+    PDF          = new('.pdf',    'application/pdf'                         )
     TXT          = new('.txt',    'text/plain; charset=UTF-8'               )
     CSS          = new('.css',    'text/css; charset=UTF-8'                 )
     JAVASCRIPT   = new('.js',     'application/javascript; charset=UTF-8'   )
