@@ -1,3 +1,5 @@
 /Gemfile.lock
 /.sass-cache
 /tmp
+/.bundle
+/vendor
