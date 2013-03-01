@@ -5,6 +5,7 @@ gemspec
 gem 'composition', :git => 'https://github.com/mbj/composition.git'
 gem 'response',    :git => 'https://github.com/mbj/response.git'
 gem 'request',     :git => 'https://github.com/mbj/request.git'
+gem 'anima',       :git => 'https://github.com/mbj/anima.git'
 gem 'joy',         :git => 'https://github.com/mbj/joy.git'
 
 # Unreleased transitive dependency
