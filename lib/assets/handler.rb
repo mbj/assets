@@ -18,13 +18,14 @@ module Assets
 
     # Call handler
     #
+    # @param [Application] application
     # @param [Request] request
     #
     # @return [Response]
     #
     # @api private
     #
-    def call(request)
+    def call(_application, request)
       name = request.path_info.gsub(prefix, '')
       asset = environment.get(name)
       if asset
