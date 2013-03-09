@@ -2,7 +2,7 @@ module Assets
 
   # Rule evaluator
   class Evaluator
-    include Adamantium, Composition.new(:rule)
+    include Adamantium, Concord.new(:rule)
 
     # Return asset
     #

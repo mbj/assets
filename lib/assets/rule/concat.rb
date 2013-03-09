@@ -2,7 +2,7 @@ module Assets
   class Rule
     # Rule that concatenates assets from other rules
     class Concat < self
-      include Composition.new(:name, :mime, :rules)
+      include Concord.new(:name, :mime, :rules)
 
       # Instantiate object
       #

@@ -1,6 +1,6 @@
 module Assets
   class Mime
-    include Adamantium, Composition.new(:extname, :content_type)
+    include Adamantium, Concord.new(:extname, :content_type)
 
     REGISTRY = {}
 

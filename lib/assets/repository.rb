@@ -5,7 +5,7 @@ module Assets
 
     # Physical directory repository
     class Directory
-      include Composition.new(:root)
+      include Concord.new(:root)
 
       # Build a file rule
       #

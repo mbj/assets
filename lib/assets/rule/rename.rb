@@ -12,7 +12,7 @@ module Assets
       # @param [Rule] rule
       #   the rule to rename
       # 
-      include Composition.new(:name, :rule)
+      include Concord.new(:name, :rule)
 
       # Return body
       #

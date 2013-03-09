@@ -3,7 +3,7 @@ module Assets
 
     # Environment with dynamic asset compilation
     class Dynamic < self
-      include Adamantium, Composition.new(:rules)
+      include Adamantium, Concord.new(:rules)
 
       # Return index
       #

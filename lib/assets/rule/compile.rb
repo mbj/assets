@@ -1,7 +1,7 @@
 module Assets
   class Rule 
     class Compile < self
-      include Composition.new(:file)
+      include Concord.new(:file)
 
       # Return name
       #

@@ -1,7 +1,7 @@
 module Assets
   # Asset request handler
   class Handler
-    include Adamantium, Composition.new(:environment, :prefix)
+    include Adamantium, Concord.new(:environment, :prefix)
 
     # Instantiate object
     #

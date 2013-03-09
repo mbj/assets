@@ -2,7 +2,7 @@ module Assets
   class Environment
     # Static enviornment with precompiled assets
     class Static < self
-      include Composition.new(:assets)
+      include Concord.new(:assets)
 
       # Return index
       #

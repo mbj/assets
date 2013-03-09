@@ -1,7 +1,7 @@
 module Assets
   class Rule
     class File < self
-      include Composition.new(:name, :path)
+      include Concord.new(:name, :path)
 
       # Return extname
       #

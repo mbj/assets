@@ -1,7 +1,7 @@
 module Assets
   # Abstract base class for asset responders
   class Responder
-    include AbstractType, Joy::Responder, Composition.new(:asset)
+    include AbstractType, Joy::Responder, Concord.new(:asset)
 
     HEADERS   = IceNine.deep_freeze('Cache-Control' => 'max-age=120, must-revalidate')
     NOT_FOUND = Response.build(
