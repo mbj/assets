@@ -45,15 +45,14 @@ module Assets
       # @api private
       #
       def updated_at
+        rules = self.rules
         time = rules.first.updated_at
-
         rules.each do |rule|
           updated_at = rule.updated_at
           if time < updated_at
             time = updated_at
           end
         end
-
         time
       end
 
