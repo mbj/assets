@@ -26,6 +26,14 @@ module Assets
 
     class Builder
 
+      # Run builder 
+      #
+      # @param [String] directory
+      #
+      # @return [Package]
+      #
+      # @api private
+      #
       def self.run(directory)
         repository = Repository::Directory.new(directory)
         builder = new(repository)
@@ -33,6 +41,14 @@ module Assets
         Package.new(repository, builder.contents)
       end
 
+      # Initialize object
+      #
+      # @param [Repository] repository
+      #
+      # @return [undefined]
+      #
+      # @api private
+      #
       def initialize(repository)
         @repository = repository
         @contents = Hash.new { |hash, key| hash[key] = [] }
@@ -93,6 +109,8 @@ module Assets
       # Append rule
       #
       # @param [Rule] rule
+      #
+      # @return [self]
       #
       # @api private
       #

@@ -52,7 +52,7 @@ describe Assets, 'and spiking around' do
   end
 
   subject do 
-    server.call(request)
+    server.call(application, request)
   end
 
   def strip_indentation(text)
