@@ -48,6 +48,7 @@ module Assets
     GIF          = new('.gif',    'image/gif'                               )
     SVG          = new('.svg',    'image/svg'                               )
     PDF          = new('.pdf',    'application/pdf'                         )
+    RUBY         = new('.rb',     'application/ruby'                        )
     TXT          = new('.txt',    'text/plain; charset=UTF-8'               )
     CSS          = new('.css',    'text/css; charset=UTF-8'                 )
     JAVASCRIPT   = new('.js',     'application/javascript; charset=UTF-8'   )
