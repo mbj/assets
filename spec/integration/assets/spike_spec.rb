@@ -28,14 +28,10 @@ describe Assets, 'and spiking around' do
     end
   end
 
-  let(:javascript) do
-    repository.compile('application.coffee')
-  end
-
   let(:rules) do
     rules = []
     rules.concat(images)
-    rules << javascript
+    rules << repository.compile('application.coffee')
     rules << stylesheet
   end
 
@@ -93,7 +89,6 @@ describe Assets, 'and spiking around' do
       let(:expected_body) do
         strip_indentation(<<-JAVASCRIPT)
           (function() {
-
             alert("Hello World");
 
           }).call(this);
