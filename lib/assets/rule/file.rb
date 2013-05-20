@@ -3,6 +3,24 @@ module Assets
     class File < self
       include Concord.new(:name, :path)
 
+      # Return path
+      #
+      # TODO: Remove this
+      #
+      # @return [String]
+      #
+      # @api private
+      #
+      attr_reader :path
+
+      # Return name
+      #
+      # @return [String]
+      #
+      # @api private
+      #
+      attr_reader :name
+
       # Return extname
       #
       # @return [String]

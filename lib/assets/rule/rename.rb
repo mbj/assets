@@ -14,6 +14,14 @@ module Assets
       # 
       include Concord.new(:name, :rule)
 
+      # Return name
+      #
+      # @return [String]
+      #
+      # @api private
+      #
+      attr_reader :name
+
       # Return body
       #
       # @return [String]

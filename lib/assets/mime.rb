@@ -4,6 +4,22 @@ module Assets
 
     REGISTRY = {}
 
+    # Return extname
+    #
+    # @return [String]
+    #
+    # @api private
+    #
+    attr_reader :extname
+
+    # Return content type
+    #
+    # @return [String]
+    #
+    # @api private
+    #
+    attr_reader :content_type
+
     # Return mime for extname
     #
     # @param [String] extname

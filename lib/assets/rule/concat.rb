@@ -4,6 +4,22 @@ module Assets
     class Concat < self
       include Concord.new(:name, :mime, :rules)
 
+      # Return name
+      #
+      # @return [String]
+      #
+      # @api private
+      #
+      attr_reader :name
+
+      # Return mime
+      #
+      # @return [Mime]
+      #
+      # @api private
+      #
+      attr_reader :mime
+
       # Instantiate object
       #
       # @param [String] name
