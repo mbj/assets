@@ -1,6 +1,6 @@
 module Assets
   class Package
-    include Concord.new(:repository, :contents)
+    include Concord::Public.new(:repository, :contents)
 
     # Return rules for mime type
     #
