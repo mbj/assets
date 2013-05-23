@@ -1,7 +1,7 @@
 module Assets
   class Rule 
     class Compile < self
-      include Concord.new(:file)
+      include Concord.new(:input)
 
       # Return name
       #
@@ -10,7 +10,7 @@ module Assets
       # @api private
       #
       def name
-        file.name
+        input.name
       end
 
       # Return updated at
@@ -20,7 +20,7 @@ module Assets
       # @api private
       #
       def updated_at
-        file.updated_at
+        input.updated_at
       end
 
       # Return target name
@@ -30,7 +30,7 @@ module Assets
       # @api private
       #
       def target_name
-        regexp = %r(#{Regexp.escape(file.extname)}\z)
+        regexp = %r(#{Regexp.escape(input.extname)}\z)
         name.gsub(regexp, mime.extname)
       end
       memoize :target_name

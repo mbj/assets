@@ -14,7 +14,7 @@ module Assets
           # @api private
           #
           def body
-            ::CoffeeScript.compile(file.body)
+            ::CoffeeScript.compile(input.body)
           end
 
         end

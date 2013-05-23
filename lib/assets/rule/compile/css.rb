@@ -2,12 +2,12 @@ module Assets
   class Rule
     class Compile
       # Abstract base class for compilers that compile to css
-      class CSS < self
+      class Css < self
 
         MIME = Mime::CSS
 
         # Compiler for sass
-        class SASS < self
+        class Sass < self
           handle(Mime::SASS)
 
           # Return body
@@ -17,12 +17,12 @@ module Assets
           # @api private
           #
           def body
-            ::Sass.compile_file(file.path.to_s)
+            ::Sass.compile(input.body, :syntax => :sass)
           end
 
-        end
+        end # Sass
 
-      end
-    end
-  end
-end
+      end # Css
+    end # Compile
+  end # Rule
+end # Assets
