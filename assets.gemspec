@@ -27,4 +27,5 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency('joy',                 '~> 0.0.1')
   gem.add_runtime_dependency('sass',                '~> 3.2.4')
   gem.add_runtime_dependency('coffee-script',       '~> 2.2.0')
+  gem.add_runtime_dependency('yui-compressor',      '~> 0.9.6')
 end
