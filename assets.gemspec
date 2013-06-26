@@ -15,7 +15,7 @@ Gem::Specification.new do |gem|
   gem.extra_rdoc_files = %w[TODO]
 
   gem.add_runtime_dependency('backports',           [ '~> 3.0', '>= 3.0.3' ])
-  gem.add_runtime_dependency('ice_nine',            '~> 0.7.0')
+  gem.add_runtime_dependency('ice_nine',            '~> 0.8.0')
   gem.add_runtime_dependency('descendants_tracker', '~> 0.0.1')
   gem.add_runtime_dependency('concord',             '~> 0.1.1')
   gem.add_runtime_dependency('adamantium',          '~> 0.0.7')
