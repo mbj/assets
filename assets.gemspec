@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |gem|
   gem.name        = 'assets'
-  gem.version     = '0.0.2'
+  gem.version     = '0.0.3'
   gem.authors     = [ 'Markus Schirp' ]
   gem.email       = [ 'mbj@schirp-dso.com' ]
   gem.description = 'Playground for a small assets system'
@@ -14,7 +14,6 @@ Gem::Specification.new do |gem|
   gem.test_files       = `git ls-files -- spec`.split("\n")
   gem.extra_rdoc_files = %w[TODO]
 
-  gem.add_runtime_dependency('backports',           [ '~> 3.0', '>= 3.0.3' ])
   gem.add_runtime_dependency('adamantium',          '~> 0.0.8')
   gem.add_runtime_dependency('ice_nine',            '~> 0.8.0')
   gem.add_runtime_dependency('descendants_tracker', '~> 0.0.1')
@@ -27,5 +26,4 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency('joy',                 '~> 0.0.1')
   gem.add_runtime_dependency('sass',                '~> 3.2.4')
   gem.add_runtime_dependency('coffee-script',       '~> 2.2.0')
-  gem.add_runtime_dependency('yui-compressor',      '~> 0.9.6')
 end
