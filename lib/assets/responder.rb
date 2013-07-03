@@ -1,14 +1,26 @@
 module Assets
   # Abstract base class for asset responders
   class Responder
-    include AbstractType, Joy::Responder, Concord.new(:asset)
+    include AbstractType, Concord.new(:asset)
 
     HEADERS   = IceNine.deep_freeze('Cache-Control' => 'max-age=120, must-revalidate')
     NOT_FOUND = Response.build(
-      Response::Status::NOT_FOUND, 
-      HEADERS.merge('Content-Type' => Assets::Mime::TXT.content_type), 
+      Response::Status::NOT_FOUND,
+      HEADERS.merge('Content-Type' => Assets::Mime::TXT.content_type),
       'Not Found'
     )
+
+    # Call responder
+    #
+    # @param [Object] asset
+    #
+    # @return [Response]
+    #
+    # @api private
+    #
+    def self.call(asset)
+      new(asset).response
+    end
 
     # Run responder
     #
@@ -22,7 +34,7 @@ module Assets
     def self.run(request, asset)
       timestamp = request.if_modified_since
 
-      responder = 
+      responder =
         if timestamp && asset.fresh_at?(timestamp)
           NotModified
         else
@@ -90,7 +102,7 @@ module Assets
 
     end
 
-    # New asset responder 
+    # New asset responder
     class New < self
       STATUS = Response::Status::OK
 

@@ -10,7 +10,6 @@ require 'request'
 require 'response'
 require 'sass'
 require 'coffee-script'
-require 'joy'
 
 # Library namespace
 module Assets
