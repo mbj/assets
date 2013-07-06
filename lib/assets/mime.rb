@@ -44,7 +44,7 @@ module Assets
       extname(::File.extname(name))
     end
 
-    # Instantiate object 
+    # Instantiate object
     #
     # @return [Mime]
     #

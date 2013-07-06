@@ -9,11 +9,11 @@ describe Assets, 'and spiking around' do
   let(:repository) do
     Assets::Repository::Directory.new(root)
   end
-  
+
   let(:fonts) do
     repository.file('fonts.css')
   end
-  
+
   let(:application) do
     repository.compile('application.sass')
   end
@@ -47,8 +47,8 @@ describe Assets, 'and spiking around' do
     Request::Rack.new({'PATH_INFO' => path_info}.merge(extra_hash))
   end
 
-  subject do 
-    server.call(application, request)
+  subject do
+    server.call(request)
   end
 
   def strip_indentation(text)
