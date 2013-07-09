@@ -22,6 +22,23 @@ module Assets
 
         end # Sass
 
+        # Compiler for sass
+        #
+        class Scss < self
+          handle(Mime::SCSS)
+
+          # Return body
+          #
+          # @return [String]
+          #
+          # @api private
+          #
+          def body
+            ::Sass.compile(input.body, :syntax => :scss)
+          end
+
+        end # Sass
+
       end # Css
     end # Compile
   end # Rule

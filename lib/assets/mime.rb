@@ -70,6 +70,7 @@ module Assets
     JAVASCRIPT   = new('.js',     'application/javascript; charset=UTF-8'   )
     COFFEESCRIPT = new('.coffee', 'application/coffeescript; charset=UTF-8' )
     SASS         = new('.sass',   'text/plain; charset=UTF-8'               )
+    SCSS         = new('.scss',   'text/plain; charset=UTF-8'               )
     HTML         = new('.html',   'text/html; charset=UTF-8'                )
 
     IMAGES = [
