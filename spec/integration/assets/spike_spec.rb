@@ -28,9 +28,16 @@ describe Assets, 'and spiking around' do
     end
   end
 
+  let(:web_fonts) do
+    repository.glob('*.woff').map do |name|
+      repository.file(name)
+    end
+  end
+
   let(:rules) do
     rules = []
     rules.concat(images)
+    rules.concat(web_fonts)
     rules << repository.compile('application.coffee')
     rules << stylesheet
   end
@@ -81,6 +88,15 @@ describe Assets, 'and spiking around' do
       its(:cache_control) { should eql('max-age=120, must-revalidate')           }
       its(:status)        { should be(Response::Status::OK)                      }
       its(:body)          { should eql(expected_body)                            }
+    end
+
+    context 'accessing woff web font' do
+      let(:name)          { 'droid-sans.woff'                        }
+      let(:extra_hash)    { {} }
+      let(:expected_body) { File.read('spec/assets/droid-sans.woff') }
+
+      its(:content_type)  { should eql('application/font-woff') }
+      its(:body)          { should eql(expected_body)           }
     end
 
     context 'compiling coffescript' do
