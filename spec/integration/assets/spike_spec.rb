@@ -91,12 +91,12 @@ describe Assets, 'and spiking around' do
     end
 
     context 'accessing woff web font' do
-      let(:name)          { 'droid-sans.woff' }
+      let(:name)          { 'droid-sans.woff'                        }
       let(:extra_hash)    { {} }
       let(:expected_body) { File.read('spec/assets/droid-sans.woff') }
 
       its(:content_type)  { should eql('application/font-woff') }
-      its(:body)          { should eql(expected_body) }
+      its(:body)          { should eql(expected_body)           }
     end
 
     context 'compiling coffescript' do
