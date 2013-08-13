@@ -11,7 +11,7 @@ module Assets
       #
       # @param [Rule] rule
       #   the rule to rename
-      # 
+      #
       include Concord.new(:name, :rule)
 
       # Return name

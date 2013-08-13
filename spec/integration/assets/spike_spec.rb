@@ -81,7 +81,7 @@ describe Assets, 'and spiking around' do
     context 'accessing image' do
       let(:name)       { 'test.jpg' }
       let(:extra_hash) { {}         }
-      let(:expected_body) { File.read('spec/assets/test.jpg') }
+      let(:expected_body) { File.binread('spec/assets/test.jpg') }
 
       its(:content_type)  { should eql('image/jpg')  }
       its(:last_modified) { should eql(Time.httpdate(asset.created_at.httpdate)) }
@@ -93,7 +93,7 @@ describe Assets, 'and spiking around' do
     context 'accessing woff web font' do
       let(:name)          { 'droid-sans.woff'                        }
       let(:extra_hash)    { {} }
-      let(:expected_body) { File.read('spec/assets/droid-sans.woff') }
+      let(:expected_body) { File.binread('spec/assets/droid-sans.woff') }
 
       its(:content_type)  { should eql('application/font-woff') }
       its(:body)          { should eql(expected_body)           }
@@ -103,7 +103,7 @@ describe Assets, 'and spiking around' do
       let(:name)       { 'application.js' }
       let(:extra_hash) { {}               }
       let(:expected_body) do
-        strip_indentation(<<-JAVASCRIPT)
+        strip_indentation(<<-JAVASCRIPT).force_encoding(Encoding::ASCII_8BIT)
           (function() {
             alert("Hello World");
 

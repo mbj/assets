@@ -1,5 +1,5 @@
 module Assets
-  class Rule 
+  class Rule
     class Compile < self
       include Concord.new(:input)
 

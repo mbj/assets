@@ -1,7 +1,7 @@
 module Assets
 
   # Abstract base class for rules that generate assets
-  class Rule 
+  class Rule
     include Adamantium, AbstractType
 
     # Return asset
@@ -22,7 +22,7 @@ module Assets
     #
     abstract_method :body
 
-    # Return mime 
+    # Return mime
     #
     # @return [Mime]
     #
@@ -41,7 +41,7 @@ module Assets
     # Return renamed asset
     #
     # @param [String] name
-    # 
+    #
     # @return [Rule::Rename]
     #
     # @api private
@@ -65,5 +65,19 @@ module Assets
       time >= updated_at
     end
 
-  end
-end
+  private
+
+    # Helper method to tag strings as binary
+    #
+    # @param [String]
+    #
+    # @return [String]
+    #
+    # @api private
+    #
+    def binary(string)
+      string.force_encoding(Encoding::ASCII_8BIT)
+    end
+
+  end # Rule
+end # Assets

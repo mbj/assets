@@ -14,11 +14,11 @@ module Assets
           # @api private
           #
           def body
-            ::CoffeeScript.compile(input.body)
+            binary(::CoffeeScript.compile(input.body))
           end
 
-        end
-      end
-    end
-  end
-end
+        end # Coffeescript
+      end # Javascript
+    end # Compile
+  end # Rule
+end # Assets

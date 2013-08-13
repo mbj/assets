@@ -39,7 +39,7 @@ module Assets
       # @api private
       #
       def body
-        ::File.read(path)
+        ::File.binread(path)
       end
 
       # Return mime type

@@ -17,13 +17,12 @@ module Assets
           # @api private
           #
           def body
-            ::Sass.compile(input.body, :syntax => :sass)
+            binary(::Sass.compile(input.body, :syntax => :sass))
           end
 
         end # Sass
 
-        # Compiler for sass
-        #
+        # Compiler for sass in scss flavor
         class Scss < self
           handle(Mime::SCSS)
 
@@ -34,10 +33,10 @@ module Assets
           # @api private
           #
           def body
-            ::Sass.compile(input.body, :syntax => :scss)
+            binary(::Sass.compile(input.body, :syntax => :scss))
           end
 
-        end # Sass
+        end # Scss
 
       end # Css
     end # Compile

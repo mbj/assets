@@ -6,7 +6,7 @@ module Assets
 
         MIME = Mime::JAVASCRIPT
 
-      end
-    end
-  end
-end
+      end # Javascript
+    end # Compile
+  end # Rule
+end # Assets
