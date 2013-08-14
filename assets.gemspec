@@ -4,6 +4,7 @@ Gem::Specification.new do |gem|
   gem.name        = 'mbj-assets'
   gem.version     = '0.0.7'
   gem.authors     = [ 'Markus Schirp' ]
+  gem.license     = 'MIT'
   gem.email       = [ 'mbj@schirp-dso.com' ]
   gem.description = 'Playground for a small assets system'
   gem.summary     = gem.description
