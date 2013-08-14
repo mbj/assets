@@ -14,7 +14,7 @@ module Assets
           # @api private
           #
           def body
-            binary(::CoffeeScript.compile(input.body))
+            binary(::CoffeeScript.compile(utf8(input.body)))
           end
 
         end # Coffeescript

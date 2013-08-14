@@ -67,6 +67,18 @@ module Assets
 
   private
 
+    # Helper method to tag strings as utf-8
+    #
+    # @param [String]
+    #
+    # @return [String]
+    #
+    # @api private
+    #
+    def utf8(string)
+      string.force_encoding(Encoding::UTF_8)
+    end
+
     # Helper method to tag strings as binary
     #
     # @param [String]

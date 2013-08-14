@@ -107,6 +107,8 @@ describe Assets, 'and spiking around' do
           (function() {
             alert("Hello World");
 
+            alert("UTF-8 fun: ä");
+
           }).call(this);
         JAVASCRIPT
       end
