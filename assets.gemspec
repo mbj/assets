@@ -17,10 +17,10 @@ Gem::Specification.new do |gem|
 
   gem.add_runtime_dependency('adamantium',          '~> 0.1.0')
   gem.add_runtime_dependency('ice_nine',            '~> 0.9.0')
-  gem.add_runtime_dependency('concord',             '~> 0.1.1')
+  gem.add_runtime_dependency('concord',             '~> 0.1.4')
   gem.add_runtime_dependency('equalizer',           '~> 0.0.5')
-  gem.add_runtime_dependency('response',            '~> 0.0.2')
-  gem.add_runtime_dependency('request',             '~> 0.0.2')
+  gem.add_runtime_dependency('response',            '~> 0.0.4')
+  gem.add_runtime_dependency('request',             '~> 0.0.5')
   gem.add_runtime_dependency('abstract_type',       '~> 0.0.5')
   gem.add_runtime_dependency('anima',               '~> 0.1.1')
   gem.add_runtime_dependency('sass',                '~> 3.2.4')
