@@ -1,6 +1,5 @@
 require 'time'
 require 'abstract_type'
-require 'descendants_tracker'
 require 'adamantium'
 require 'concord'
 require 'equalizer'

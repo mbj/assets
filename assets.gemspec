@@ -17,7 +17,6 @@ Gem::Specification.new do |gem|
 
   gem.add_runtime_dependency('adamantium',          '~> 0.0.8')
   gem.add_runtime_dependency('ice_nine',            '~> 0.8.0')
-  gem.add_runtime_dependency('descendants_tracker', '~> 0.0.1')
   gem.add_runtime_dependency('concord',             '~> 0.1.1')
   gem.add_runtime_dependency('equalizer',           '~> 0.0.5')
   gem.add_runtime_dependency('response',            '~> 0.0.2')
