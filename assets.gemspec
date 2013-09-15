@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |gem|
   gem.name        = 'mbj-assets'
-  gem.version     = '0.0.7'
+  gem.version     = '0.0.8'
   gem.authors     = [ 'Markus Schirp' ]
   gem.license     = 'MIT'
   gem.email       = [ 'mbj@schirp-dso.com' ]
