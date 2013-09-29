@@ -1,4 +1,5 @@
 module Assets
+  # Mime type for assets
   class Mime
     include Adamantium, Concord.new(:extname, :content_type)
 
@@ -80,5 +81,6 @@ module Assets
     ].freeze
 
     REGISTRY.freeze
-  end
-end
+
+  end # Mime
+end # Assets
