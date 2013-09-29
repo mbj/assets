@@ -15,7 +15,7 @@ module Assets
     #   otherwise
     #
     # @api private
-    # 
+    #
     abstract_method :rule
 
     # Return asset
@@ -27,8 +27,21 @@ module Assets
     #   otherwise
     #
     # @api private
-    # 
+    #
     abstract_method :get
 
-  end
-end
+    # Return URL
+    #
+    # @param [String] name
+    #
+    # @return [String] url
+    #
+    # @raise [AssetNotFoundError]
+    #   otherwise
+    #
+    # @api private
+    #
+    abstract_method :url
+
+  end # Environment
+end # Assets

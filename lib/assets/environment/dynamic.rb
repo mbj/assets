@@ -51,6 +51,6 @@ module Assets
         rule && rule.asset
       end
 
-    end
-  end
-end
+    end # Dynamic
+  end  # Environment
+end # Assets

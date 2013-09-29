@@ -12,7 +12,8 @@ require 'coffee-script'
 
 # Library namespace
 module Assets
-end
+  EMPTY_STRING = ''.freeze
+end # Assets
 
 require 'assets/asset'
 require 'assets/repository'

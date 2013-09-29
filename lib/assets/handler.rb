@@ -12,7 +12,7 @@ module Assets
     #
     # @api private
     #
-    def self.new(environment, prefix = '')
+    def self.new(environment, prefix = EMPTY_STRING)
       super(environment, Regexp.compile(%r(\A#{Regexp.escape(prefix)})))
     end
 
@@ -25,7 +25,7 @@ module Assets
     # @api private
     #
     def call(request)
-      name = request.path_info.gsub(prefix, '')
+      name = request.path_info.gsub(prefix, EMPTY_STRING)
       asset = environment.get(name)
       if asset
         Responder.run(request, asset)

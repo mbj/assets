@@ -40,7 +40,7 @@ module Assets
       #
       # @param [String] name
       #
-      # @return [Rule] 
+      # @return [Rule]
       #   if found
       #
       # @return [nil]
@@ -63,7 +63,7 @@ module Assets
       #   otherwise
       #
       def get(name)
-        rule = rule(name) 
+        rule = rule(name)
         return unless rule
 
         asset = @cache.fetch(name) do
@@ -86,13 +86,13 @@ module Assets
       #
       def hit(rule, asset)
         if rule.fresh_at?(asset.created_at)
-          return asset 
+          return asset
         end
 
         miss(rule)
       end
 
-      # Process cache miss 
+      # Process cache miss
       #
       # @param [Rule] rule
       #
@@ -108,6 +108,6 @@ module Assets
         @cache[rule.name] = rule.asset
       end
 
-    end
-  end
-end
+    end # Cache
+  end # Environment
+end # Assets

@@ -32,6 +32,7 @@ module Assets
       def get(name)
         index[name]
       end
-    end
-  end
-end
+
+    end # Static
+  end # Environment
+end # Assets
