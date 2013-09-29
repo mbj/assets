@@ -63,5 +63,5 @@ module Assets
       rule.mime
     end
 
-  end
-end
+  end # Evaluator
+end # Assets
