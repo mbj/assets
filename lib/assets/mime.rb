@@ -73,7 +73,8 @@ module Assets
     SCSS         = new('.scss',   'text/plain; charset=UTF-8'               )
     HTML         = new('.html',   'text/html; charset=UTF-8'                )
     WOFF         = new('.woff',   'application/font-woff'                   )
-
+    EOT          = new('.eot',    'application/vnd.ms-fontobject'           )
+    
     IMAGES = [
       JPG, ICO, PNG, SVG, GIF
     ].freeze
