@@ -59,7 +59,7 @@ module Assets
 
     private_class_method :new
 
-    JPG          = new('.jpg',    'image/jpg'                               )
+    JPG          = new('.jpg',    'image/jpeg'                              )
     ICO          = new('.ico',    'image/vnd.microsoft.icon'                )
     PNG          = new('.png',    'image/png'                               )
     GIF          = new('.gif',    'image/gif'                               )
