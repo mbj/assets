@@ -85,7 +85,7 @@ describe Assets, 'and spiking around' do
       let(:extra_hash) { {}         }
       let(:expected_body) { File.binread('spec/assets/test.jpg') }
 
-      its(:content_type)  { should eql('image/jpg')  }
+      its(:content_type)  { should eql('image/jpeg')  }
       its(:last_modified) { should eql(Time.httpdate(asset.created_at.httpdate)) }
       its(:cache_control) { should eql('max-age=120, must-revalidate')           }
       its(:status)        { should be(Response::Status::OK)                      }
