@@ -11,7 +11,6 @@ module Assets
     # @api private
     #
     def asset
-      rule = self.rule
       Asset.new(
         :name       => rule.name,
         :mime       => rule.mime,
