@@ -23,6 +23,6 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency('request',             '~> 0.0.5')
   gem.add_runtime_dependency('abstract_type',       '~> 0.0.5')
   gem.add_runtime_dependency('anima',               '~> 0.2.0')
-  gem.add_runtime_dependency('sass',                '~> 3.2.4')
+  gem.add_runtime_dependency('sass',                '~> 3.3.4')
   gem.add_runtime_dependency('coffee-script',       '~> 2.2.0')
 end
